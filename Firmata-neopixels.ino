@@ -522,8 +522,7 @@ void sysexCallback(byte command, byte argc, byte *argv)
       {
         int pin = argv[0];
         int count = argv[1];
-    String str("reg received: ");
-            Firmata.sendString((str + pin + ", " + count).c_str());
+        
         if (neopixels != NULL) {
           delete neopixels;
         }
@@ -538,8 +537,7 @@ void sysexCallback(byte command, byte argc, byte *argv)
         int red = argv[1];
         int green = argv[2];
         int blue = argv[3];
-    String str("pixel received: ");
-            Firmata.sendString((str + index + ", " + red + ", " + green + ", " + blue).c_str());
+        
         neopixels->setPixelColor(index, neopixels->Color(red, green, blue));
         neopixels->show();
       }
